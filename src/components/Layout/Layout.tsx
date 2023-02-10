@@ -9,12 +9,12 @@ type Props = {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <div>
+    <>
       <Header />
       <Categories />
       {children}
       <Footer />
-    </div>
+    </>
   );
 };
 
