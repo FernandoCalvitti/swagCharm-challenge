@@ -1,0 +1,56 @@
+.productCard .card {
+  max-width: 21vw;
+  /* height: 394px; */
+  padding: 0;
+  position: relative;
+  min-width: 336px;
+}
+.productCard .cardMedia {
+  height: 336px;
+  background-size: contain;
+}
+
+.productCard .cardContent {
+  padding: 16px 0 0 0;
+}
+
+.productCard .cardContent h6 {
+  white-space: no-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.productCard .bottomText {
+  justify-content: flex-start;
+  column-gap: 5vw;
+}
+
+.productCard .buttons {
+  position: absolute;
+  top: 267px;
+  left: -6px;
+  z-index: 50;
+}
+
+.productCard .buttons button {
+  background-color: #091625;
+  color: white;
+  border-radius: 1rem;
+  padding: 6px 12px;
+  height: 60px;
+}
+
+.productCard .buttons button:hover {
+  background-color: #0071f150;
+}
+
+@media screen and (max-width: 380px) {
+  .productCard {
+    min-width: 10vw;
+  }
+
+  .productCard .card {
+    max-width: 15vw;
+    min-width: 280px;
+  }
+}
