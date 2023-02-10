@@ -1,0 +1,28 @@
+.categories {
+  padding: 0;
+  background: #e6e8e9;
+  height: 64px;
+}
+
+.categories button {
+  padding: 0;
+  margin-right: 1.5rem;
+}
+
+.categories div button {
+  text-transform: none;
+}
+
+.categories div button p {
+  color: #535c67;
+}
+
+@media screen and (max-width: 480px) {
+  .categories {
+    height: 86px;
+  }
+  .categories button {
+    padding: 0;
+    margin-right: 0.5rem;
+  }
+}
