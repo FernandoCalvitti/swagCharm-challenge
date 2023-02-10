@@ -1,0 +1,72 @@
+.navbar {
+  height: 88px;
+  display: flex;
+  justify-content: center;
+  padding: 0 5.75%;
+  overflow: hidden;
+}
+
+.navbar .toolbar {
+  padding: 0;
+  margin: 0;
+  display: "flex";
+  flex-direction: "row";
+  align-items: "center";
+}
+
+.logo {
+  background-color: pink;
+}
+
+.logo a button {
+  margin: 0;
+  padding: 0;
+}
+
+.navItems a:hover,
+.navItems button:hover {
+  background-color: #0071f150;
+}
+
+.navItems button:hover {
+  background-color: #0071f150;
+}
+
+.navItems a,
+.navItems button {
+  border-radius: 1rem;
+  padding: 6px 12px;
+  gap: 12px;
+}
+
+.navItems a button:hover {
+  background-color: transparent;
+}
+
+.navItems a:link,
+.navItems a:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+.navItems a {
+  padding-right: 0;
+  margin-left: 1rem;
+}
+
+@media screen and (max-width: 680px) {
+  .navbar .toolbar .logo {
+    display: none;
+  }
+
+  .searchbar div {
+    margin-left: 0;
+    margin-right: 1rem;
+  }
+
+  .navItems a,
+  .navItems button {
+    padding: 6px;
+  }
+}
