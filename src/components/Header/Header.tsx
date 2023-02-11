@@ -32,7 +32,7 @@ const StyledBadge = styled(Badge)<BadgeProps>(() => ({
 
 const Header: React.FC<Props> = (props: Props) => {
   return (
-    <AppBar position="relative" className={Styles.navbar}>
+    <AppBar position="relative" sx={{}} className={Styles.navbar}>
       <Toolbar className={Styles.toolbar}>
         <Stack className={Styles.logo}>
           <ComposedLink href={HOME}>

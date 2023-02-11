@@ -7,7 +7,7 @@
 }
 .productCard .cardMedia {
   height: 336px;
-  background-size: contain;
+  background-size: 75%;
 }
 
 .productCard .cardContent {

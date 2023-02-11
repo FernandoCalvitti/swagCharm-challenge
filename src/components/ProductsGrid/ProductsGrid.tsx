@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Card, Container, Grid } from "@mui/material";
-import { Stack } from "@mui/system";
 
 import Styles from "./ProductsGrid.module.css";
 import Product from "../Product/Product";
@@ -13,13 +11,17 @@ type Rating = {
 };
 
 export type Item = {
-  category: string;
-  description: string;
   id: number;
-  image: string;
-  price: number;
-  rating: Rating;
   title: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
+  images: string[];
 };
 
 const ProductsGrid = (props: Props) => {
@@ -27,9 +29,9 @@ const ProductsGrid = (props: Props) => {
 
   useEffect(() => {
     try {
-      fetch("https://fakestoreapi.com/products")
+      fetch("https://dummyjson.com/products")
         .then((res) => res.json())
-        .then((data) => setItems(data));
+        .then((data) => setItems(data.products));
     } catch (error) {
       console.error(error);
     }
