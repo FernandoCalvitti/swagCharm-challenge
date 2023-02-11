@@ -18,14 +18,14 @@ type Props = {
 };
 
 const Product: React.FC<Props> = ({ item }) => {
-  const { category, image, price, rating, title } = item;
+  const { category, thumbnail, price, title, images, description } = item;
 
   return (
     <Grid className={Styles.productCard}>
       <Card className={Styles.card}>
         <CardMedia
-          image={image}
-          title="green iguana"
+          image={thumbnail}
+          title={description}
           className={Styles.cardMedia}
         />
         <CardContent className={Styles.cardContent}>
