@@ -19,22 +19,50 @@ import styled from "@emotion/styled";
 import ComposedLink from "../ComposedLink/ComposedLink";
 import { CART, HOME } from "../../config/Routes";
 import Styles from "./Header.module.css";
+import { useSelector } from "react-redux";
 
 type Props = {};
 
 const StyledBadge = styled(Badge)<BadgeProps>(() => ({
   "& .MuiBadge-badge": {
-    right: 18,
-    top: 20,
+    right: 17.5,
+    top: 22,
     padding: "0 4px",
   },
 }));
 
 const Header: React.FC<Props> = (props: Props) => {
+  const { totalCount } = useSelector((state: any) => state.cart);
+
   return (
-    <AppBar position="relative" sx={{}} className={Styles.navbar}>
-      <Toolbar className={Styles.toolbar}>
-        <Stack className={Styles.logo}>
+    <AppBar
+      position="relative"
+      sx={{
+        height: "88px",
+        display: "flex",
+        justifyContent: "center",
+        padding: "0 5.75%",
+        overflow: "hidden",
+        "& > div:first-of-type": {
+          padding: "0",
+          margin: "0",
+          display: '"flex"',
+          flexDirection: '"row"',
+          alignItems: '"center"',
+        },
+      }}
+      className={Styles.navbar}
+    >
+      <Toolbar sx={{}} className={Styles.toolbar}>
+        <Stack
+          sx={{
+            "& a button": {
+              margin: 0,
+              padding: 0,
+            },
+          }}
+          className={Styles.logo}
+        >
           <ComposedLink href={HOME}>
             <IconButton size="small">
               <img src="logo.svg" style={{ height: "48px" }} />
@@ -51,7 +79,7 @@ const Header: React.FC<Props> = (props: Props) => {
             color="inherit"
             aria-label="login"
           >
-            <PersonOutlineOutlined />
+            <PersonOutlineOutlined fontSize="large" />
             <Typography>Sign In</Typography>
           </IconButton>
           <ComposedLink href={CART}>
@@ -62,7 +90,7 @@ const Header: React.FC<Props> = (props: Props) => {
               aria-label="logo"
               sx={{ justifySelf: "flex-start" }}
             >
-              <StyledBadge badgeContent={8} max={9}>
+              <StyledBadge badgeContent={totalCount} max={9}>
                 <ShoppingBagOutlined fontSize="large" />
               </StyledBadge>
               <Typography>Cart</Typography>

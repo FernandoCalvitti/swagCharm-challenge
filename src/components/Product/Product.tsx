@@ -15,10 +15,18 @@ import truncate from "../../helpers/truncate";
 
 type Props = {
   item: Item;
+  handleAddOrRemove: any;
+  productsList: Item[];
 };
 
-const Product: React.FC<Props> = ({ item }) => {
-  const { category, thumbnail, price, title, images, description } = item;
+const Product: React.FC<Props> = ({
+  item,
+  handleAddOrRemove,
+  productsList,
+}) => {
+  const { category, thumbnail, price, title, images, description, id } = item;
+
+  const isOnCart = productsList.find((p: any) => p.id === id) ? false : true;
 
   return (
     <Grid className={Styles.productCard}>
@@ -29,20 +37,38 @@ const Product: React.FC<Props> = ({ item }) => {
           className={Styles.cardMedia}
         />
         <CardContent className={Styles.cardContent}>
-          <Typography variant="h6" component="h6" fontSize={16}>
+          <Typography
+            variant="h6"
+            component="h6"
+            fontSize={16}
+            fontWeight={700}
+            color="#091625"
+          >
             {truncate(title)}
           </Typography>
           <Stack direction="row" className={Styles.bottomText}>
-            <Typography variant="body2" className={Styles.price}>
+            <Typography
+              fontSize="15px"
+              fontWeight={600}
+              color="#091625"
+              className={Styles.price}
+            >
               $ {price / 2} to $ {price}
             </Typography>
-            <Typography variant="body2" className={Styles.price}>
-              Minimun: {Math.round((price / 4) * 3)}
+            <Typography
+              fontSize="14px"
+              fontWeight={400}
+              color="#6B737C"
+              className={Styles.price}
+            >
+              Minimun: <b>{Math.round((price / 4) * 3)}</b>
             </Typography>
           </Stack>
         </CardContent>
         <CardActions className={Styles.buttons}>
-          <Button size="small">ADD TO CART</Button>
+          <Button onClick={() => handleAddOrRemove(id)} size="small">
+            {isOnCart ? "ADD TO CART" : "REMOVE "}
+          </Button>
         </CardActions>
       </Card>
     </Grid>

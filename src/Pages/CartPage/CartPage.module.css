@@ -1,0 +1,21 @@
+@media screen and (max-width: 620px) {
+  .containerBox .summaryContainer {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .containerBox .summaryContainer > * {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .itemsContainer {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 2rem;
+  }
+
+  .containerBox .summaryContainer > * {
+    width: 100%;
+  }
+}
