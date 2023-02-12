@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCartTotal } from "../../app/reducers/cart/cartSlice";
 import Cart from "../../components/Cart";
 import CartItem from "../../components/CartItem";
+import OrderSummary from "../../components/OrderSummary";
 import { Item } from "../../components/ProductsGrid/ProductsGrid";
 
 type Props = {};
@@ -39,9 +40,7 @@ const CartPage = (props: Props) => {
           <Typography>Your cart {totalCount}</Typography>
           <Cart products={productsList} />
         </Grid>
-        <Grid xs={3} item>
-          OrderSUmmary
-        </Grid>
+        <OrderSummary />
       </Grid>
       <Box>You might...</Box>
     </Box>

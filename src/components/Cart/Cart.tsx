@@ -10,7 +10,7 @@ type Props = {
 
 const Cart: React.FC<Props> = ({ products }) => {
   return (
-    <Box width="100%">
+    <Box width="100%" paddingRight={"24px"}>
       {products.map((product: Item) => (
         <Box key={product.id}>
           <CartItem product={product} />
