@@ -4,6 +4,7 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  IconButton,
   MenuItem,
   Select,
   Stack,
@@ -19,6 +20,7 @@ import {
 } from "../../app/reducers/cart/cartSlice";
 import truncate from "../../helpers/truncate";
 import { Item } from "../ProductsGrid/ProductsGrid";
+import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
 
 type Props = {
   product: Item;
@@ -46,56 +48,114 @@ const CartItem: React.FC<Props> = ({ product }) => {
 
   return (
     <Box
-      sx={{ background: "pink" }}
       width="100%"
       height="120px"
       marginTop="2rem"
       marginBottom="2rem"
       display="flex"
       flexDirection="row"
+      justifyContent="space-between"
     >
       <CardMedia
         image={thumbnail}
         title={description}
-        sx={{ width: "120px", height: "120px" }}
+        sx={{
+          width: "120px",
+          height: "120px",
+        }}
       />
       <CardContent
         sx={{
-          background: "red",
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "0 0 0 16px",
+          margin: 0,
         }}
       >
-        <Typography variant="h6" component="h6" fontSize={16}>
-          {truncate(title)}
-        </Typography>
-        <Typography>
-          Quantity:{" "}
-          <Select
-            defaultValue={1}
-            disableUnderline
-            variant="standard"
-            onChange={(e: any) => handleChange(e)}
-          >
-            {quantity.map((q) => (
-              <MenuItem key={q} value={q}>
-                {q}
-              </MenuItem>
-            ))}
-          </Select>
-        </Typography>
-        <CardActions>
-          <Button
-            onClick={() => dispatch(removeProductFromCart(id as any))}
-            size="small"
-          >
-            Remove
-          </Button>
-        </CardActions>
-        <Stack direction="row">
-          <Typography variant="body2">$ {price} </Typography>
-          <Typography variant="body2">
-            Total: {productsList[index].totalItem}
+        <Box
+          sx={{
+            padding: 0,
+            margin: 0,
+            alignSelf: "flex-start",
+          }}
+        >
+          <Typography variant="h6" component="h6" fontSize={16}>
+            {truncate(title)}
           </Typography>
-        </Stack>
+          <Typography>
+            Quantity:{" "}
+            <Select
+              defaultValue={1}
+              disableUnderline
+              variant="standard"
+              onChange={(e: any) => handleChange(e)}
+              sx={{
+                textDecoration: "underline",
+              }}
+            >
+              {quantity.map((q) => (
+                <MenuItem key={q} value={q}>
+                  {q}
+                </MenuItem>
+              ))}
+            </Select>
+          </Typography>
+          <CardActions
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "flex-start",
+              alignItems: "center",
+              margin: 0,
+              padding: 0,
+              "& > button": {
+                padding: 0,
+                margin: 0,
+              },
+            }}
+          >
+            <IconButton
+              onClick={() => dispatch(removeProductFromCart(id as any))}
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="logo"
+              sx={{
+                justifySelf: "flex-start",
+                height: "3rem",
+                borderRadius: "1rem",
+                "&:hover": {},
+              }}
+            >
+              <DeleteForeverOutlinedIcon />
+              <Typography>Remove</Typography>
+            </IconButton>
+          </CardActions>
+        </Box>
+        <Box
+          alignSelf="flex-end"
+          display="flex"
+          flexDirection="column"
+          justifyContent="flex-start"
+          alignItems="flex-end"
+          height="100%"
+          sx={{}}
+        >
+          <Typography variant="body2">
+            <b>${price}</b>{" "}
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              mt: "12px",
+            }}
+          >
+            Total: <b>${productsList[index].totalItem}</b>
+          </Typography>
+        </Box>
       </CardContent>
     </Box>
   );
