@@ -29,7 +29,9 @@ const FooterColumn: React.FC<Props> = ({ words }) => {
           },
         }}
       >
-        <Typography variant="h6">{words.title}</Typography>
+        <Typography fontSize="16px" fontWeight={700}>
+          {words.title}
+        </Typography>
         {words.links.map((link) => (
           <ComposedLink key={link.linkTitle} href={link.linkRef}>
             <Typography
@@ -42,6 +44,9 @@ const FooterColumn: React.FC<Props> = ({ words }) => {
                   cursor: "auto",
                 },
               }}
+              fontSize="15px"
+              color="#3A4451"
+              fontWeight={400}
             >
               {link.linkTitle}
             </Typography>

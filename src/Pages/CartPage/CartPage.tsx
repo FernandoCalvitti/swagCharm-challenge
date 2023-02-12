@@ -42,7 +42,9 @@ const CartPage = (props: Props) => {
           }}
           className={Styles.itemsContainer}
         >
-          <Typography>Your cart {totalCount}</Typography>
+          <Typography fontSize="24px" fontWeight={700} color="#091625">
+            Your cart ({totalCount})
+          </Typography>
           <Cart products={productsList} />
         </Grid>
         <OrderSummary />

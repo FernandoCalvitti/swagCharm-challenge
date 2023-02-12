@@ -82,10 +82,17 @@ const CartItem: React.FC<Props> = ({ product }) => {
             alignSelf: "flex-start",
           }}
         >
-          <Typography variant="h6" component="h6" fontSize={16}>
+          <Typography
+            variant="h6"
+            component="h6"
+            fontSize="18px"
+            color="#091625"
+            fontWeight={700}
+            lineHeight="24px"
+          >
             {truncate(title)}
           </Typography>
-          <Typography>
+          <Typography fontWeight={600} fontSize="16px" color="#091625">
             Quantity:{" "}
             <Select
               defaultValue={1}
@@ -131,7 +138,9 @@ const CartItem: React.FC<Props> = ({ product }) => {
               }}
             >
               <DeleteForeverOutlinedIcon />
-              <Typography>Remove</Typography>
+              <Typography fontWeight={600} fontSize="12px">
+                Remove
+              </Typography>
             </IconButton>
           </CardActions>
         </Box>

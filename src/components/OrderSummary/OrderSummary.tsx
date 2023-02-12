@@ -27,7 +27,9 @@ const OrderSummary = (props: Props) => {
       }}
       className={Styles.orderSummary}
     >
-      <Typography>Order Summary</Typography>
+      <Typography fontSize="24px" fontWeight={700} color={"#091625"}>
+        Order Summary
+      </Typography>
       <Box
         display="flex"
         flexDirection="row"
@@ -35,8 +37,17 @@ const OrderSummary = (props: Props) => {
         alignItems="center"
         sx={{}}
       >
-        <Typography>Number of items</Typography>
-        <Typography>{totalCount}</Typography>
+        <Typography
+          fontWeight={400}
+          fontSize="16px"
+          color={"#6B737C"}
+          mt="1rem"
+        >
+          Number of items
+        </Typography>
+        <Typography fontWeight={400} fontSize="16px" color={"#6B737C"}>
+          {totalCount}
+        </Typography>
       </Box>
       <Divider />
       <Box
@@ -44,10 +55,15 @@ const OrderSummary = (props: Props) => {
         flexDirection="row"
         justifyContent="space-between"
         alignItems="center"
+        mt={"24px"}
         sx={{}}
       >
-        <Typography>Total: </Typography>
-        <Typography>${totalAmount}</Typography>
+        <Typography fontWeight={400} fontSize="18px" color={"#091625"}>
+          Total:{" "}
+        </Typography>
+        <Typography fontSize="24px" fontWeight={700} color={"#091625"}>
+          ${totalAmount}
+        </Typography>
       </Box>
       <Button
         sx={{
@@ -57,6 +73,8 @@ const OrderSummary = (props: Props) => {
           "&: hover": {
             background: "#5881b8",
           },
+          fontSize: "16px",
+          fontWeight: "700",
         }}
       >
         Proceed to Checkout
@@ -65,6 +83,13 @@ const OrderSummary = (props: Props) => {
         sx={{
           textTransform: "none",
           mt: "12px",
+          fontSize: "16px",
+          fontWeight: "700",
+          border: "2px solid #091625",
+          "&: hover": {
+            background: "#5881b8",
+            border: "2px solid #091625",
+          },
         }}
         variant="outlined"
       >

@@ -31,14 +31,25 @@ const FooterCompanyData = (props: Props) => {
       <Typography
         sx={{
           width: "70%",
+          color: "#6B737C",
         }}
+        fontSize="15px"
       >
         We sell custom products for all your needs. Packs and bulk products that
         you will enjoy.
       </Typography>
       <Stack direction={"row"}>
         <LocalPhoneIcon />
-        <Typography>+1-202-555-0129</Typography>
+        <Typography
+          sx={{
+            color: "#091625",
+          }}
+          fontSize="15px"
+          fontWeight={600}
+          marginLeft="8px"
+        >
+          +1-202-555-0129
+        </Typography>
       </Stack>
       <Box
         sx={{

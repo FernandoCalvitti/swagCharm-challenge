@@ -18,7 +18,9 @@ const Categories = (props: Props) => {
       <Box>
         {pages.map((page) => (
           <Button key={page}>
-            <Typography variant="body1">{page}</Typography>
+            <Typography fontSize="15px" variant="body1">
+              {page}
+            </Typography>
           </Button>
         ))}
       </Box>

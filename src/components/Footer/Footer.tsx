@@ -57,7 +57,9 @@ const Footer = (props: Props) => {
         }}
         className={Styles.bottomText}
       >
-        <Typography>© 2022 Customer Products. All rights reserved.</Typography>
+        <Typography fontSize="14px" fontWeight={400} color="#535C67">
+          © 2022 Customer Products. All rights reserved.
+        </Typography>
         <Box
           sx={{
             display: "flex",
@@ -83,11 +85,23 @@ const Footer = (props: Props) => {
               marginRight: "36px",
             }}
           >
-            <Typography>Region: </Typography>
+            <Typography fontSize="14px" fontWeight={400} color="#535C67">
+              Region:{" "}
+            </Typography>
             <IconButton>
               <img src="/flag.svg" alt="flag" />
             </IconButton>
-            <Select defaultValue={"USA"} disableUnderline variant="standard">
+            <Select
+              defaultValue={"USA"}
+              disableUnderline
+              variant="standard"
+              sx={{
+                ml: ".5rem",
+                color: "#535C67",
+                fontSize: "14px",
+                fontWeight: "600",
+              }}
+            >
               <MenuItem value="USA">United States</MenuItem>
             </Select>
           </Stack>
@@ -101,13 +115,18 @@ const Footer = (props: Props) => {
               marginRight: "36px",
             }}
           >
-            <Typography>Language: </Typography>
+            <Typography fontSize="14px" fontWeight={400} color="#535C67">
+              Language:{" "}
+            </Typography>
             <Select
               defaultValue={"english"}
               disableUnderline
               variant="standard"
               sx={{
                 ml: ".5rem",
+                color: "#535C67",
+                fontSize: "14px",
+                fontWeight: "600",
               }}
             >
               <MenuItem value="english">English</MenuItem>

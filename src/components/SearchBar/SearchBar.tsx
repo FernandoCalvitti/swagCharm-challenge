@@ -36,7 +36,7 @@ const StyledInputBase = styled(InputBase)(() => ({
   "& .MuiInputBase-input": {
     padding: ".25rem",
     // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + 48px)`,
+    paddingLeft: `calc(1em + 64px)`,
     transition: "ease-in",
     width: "100%",
     borderRadius: "2rem",
@@ -50,7 +50,7 @@ const SearchBar = (props: Props) => {
   return (
     <Search>
       <SearchIconWrapper>
-        <SearchIcon />
+        <SearchIcon fontSize="large" />
       </SearchIconWrapper>
       <StyledInputBase
         placeholder="Search products"

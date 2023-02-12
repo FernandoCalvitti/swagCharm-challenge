@@ -25,8 +25,8 @@ type Props = {};
 
 const StyledBadge = styled(Badge)<BadgeProps>(() => ({
   "& .MuiBadge-badge": {
-    right: 18,
-    top: 20,
+    right: 17.5,
+    top: 22,
     padding: "0 4px",
   },
 }));
@@ -79,7 +79,7 @@ const Header: React.FC<Props> = (props: Props) => {
             color="inherit"
             aria-label="login"
           >
-            <PersonOutlineOutlined />
+            <PersonOutlineOutlined fontSize="large" />
             <Typography>Sign In</Typography>
           </IconButton>
           <ComposedLink href={CART}>
