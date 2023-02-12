@@ -15,10 +15,18 @@ import truncate from "../../helpers/truncate";
 
 type Props = {
   item: Item;
+  handleAddOrRemove: any;
+  productsList: Item[];
 };
 
-const Product: React.FC<Props> = ({ item }) => {
-  const { category, thumbnail, price, title, images, description } = item;
+const Product: React.FC<Props> = ({
+  item,
+  handleAddOrRemove,
+  productsList,
+}) => {
+  const { category, thumbnail, price, title, images, description, id } = item;
+
+  const isOnCart = productsList.find((p: any) => p.id === id) ? false : true;
 
   return (
     <Grid className={Styles.productCard}>
@@ -42,7 +50,9 @@ const Product: React.FC<Props> = ({ item }) => {
           </Stack>
         </CardContent>
         <CardActions className={Styles.buttons}>
-          <Button size="small">ADD TO CART</Button>
+          <Button onClick={() => handleAddOrRemove(id)} size="small">
+            {isOnCart ? "ADD TO CART" : "REMOVE "}
+          </Button>
         </CardActions>
       </Card>
     </Grid>
