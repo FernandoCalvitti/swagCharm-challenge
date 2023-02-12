@@ -19,6 +19,7 @@ import styled from "@emotion/styled";
 import ComposedLink from "../ComposedLink/ComposedLink";
 import { CART, HOME } from "../../config/Routes";
 import Styles from "./Header.module.css";
+import { useSelector } from "react-redux";
 
 type Props = {};
 
@@ -31,6 +32,8 @@ const StyledBadge = styled(Badge)<BadgeProps>(() => ({
 }));
 
 const Header: React.FC<Props> = (props: Props) => {
+  const { totalCount } = useSelector((state: any) => state.cart);
+
   return (
     <AppBar
       position="relative"
@@ -87,7 +90,7 @@ const Header: React.FC<Props> = (props: Props) => {
               aria-label="logo"
               sx={{ justifySelf: "flex-start" }}
             >
-              <StyledBadge badgeContent={8} max={9}>
+              <StyledBadge badgeContent={totalCount} max={9}>
                 <ShoppingBagOutlined fontSize="large" />
               </StyledBadge>
               <Typography>Cart</Typography>

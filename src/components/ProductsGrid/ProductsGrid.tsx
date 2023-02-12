@@ -5,6 +5,7 @@ import Styles from "./ProductsGrid.module.css";
 import Product from "../Product/Product";
 import {
   addProductToCart,
+  getCartTotal,
   removeProductFromCart,
 } from "../../app/reducers/cart/cartSlice";
 
@@ -52,6 +53,10 @@ const ProductsGrid = (props: Props) => {
       dispatch(addProductToCart(product as any));
     }
   };
+
+  useEffect(() => {
+    dispatch(getCartTotal());
+  }, [productsList]);
 
   console.log(items);
   return (
