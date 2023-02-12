@@ -1,13 +1,14 @@
-import { useSelect } from "@mui/base";
 import { Button, Divider, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getCartTotal } from "../../app/reducers/cart/cartSlice";
+import React from "react";
+import { useSelector } from "react-redux";
+import Styles from "./OrderSummary.module.css";
 
 type Props = {};
 
 const OrderSummary = (props: Props) => {
+  const { totalCount, totalAmount } = useSelector((state: any) => state.cart);
+
   return (
     <Grid
       xs={3}
@@ -24,6 +25,7 @@ const OrderSummary = (props: Props) => {
           marginBottom: "24px",
         },
       }}
+      className={Styles.orderSummary}
     >
       <Typography>Order Summary</Typography>
       <Box
@@ -34,7 +36,7 @@ const OrderSummary = (props: Props) => {
         sx={{}}
       >
         <Typography>Number of items</Typography>
-        <Typography>{3}</Typography>
+        <Typography>{totalCount}</Typography>
       </Box>
       <Divider />
       <Box
@@ -45,7 +47,7 @@ const OrderSummary = (props: Props) => {
         sx={{}}
       >
         <Typography>Total: </Typography>
-        <Typography>$3450</Typography>
+        <Typography>${totalAmount}</Typography>
       </Box>
       <Button
         sx={{

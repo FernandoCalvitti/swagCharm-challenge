@@ -11,11 +11,6 @@ import {
 
 type Props = {};
 
-type Rating = {
-  rate: number;
-  count: number;
-};
-
 export type Item = {
   id: number;
   title: string;

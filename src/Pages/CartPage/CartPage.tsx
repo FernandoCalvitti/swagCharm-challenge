@@ -6,6 +6,8 @@ import Cart from "../../components/Cart";
 import CartItem from "../../components/CartItem";
 import OrderSummary from "../../components/OrderSummary";
 import { Item } from "../../components/ProductsGrid/ProductsGrid";
+import Related from "../../components/Related";
+import Styles from "./CartPage.module.css";
 
 type Props = {};
 
@@ -19,7 +21,7 @@ const CartPage = (props: Props) => {
 
   return (
     <Box
-      height="1250px"
+      minHeight="650px"
       margin="0 5.75%"
       display="flex"
       flexDirection="column"
@@ -27,22 +29,28 @@ const CartPage = (props: Props) => {
       alignItems="center"
       mt="2rem"
       sx={{}}
+      className={Styles.containerBox}
     >
-      <Grid container sx={{}}>
+      <Grid container className={Styles.summaryContainer}>
         <Grid
           item
           xs={9}
           maxHeight="605px"
           sx={{
             overflowY: "scroll",
+            marginTop: "2rem",
           }}
+          className={Styles.itemsContainer}
         >
           <Typography>Your cart {totalCount}</Typography>
           <Cart products={productsList} />
         </Grid>
         <OrderSummary />
       </Grid>
-      <Box>You might...</Box>
+      <Typography alignSelf="flex-start" sx={{ marginTop: "80px" }}>
+        You might also like
+      </Typography>
+      <Related />
     </Box>
   );
 };
