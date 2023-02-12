@@ -14,7 +14,11 @@ export const cartSlice = createSlice({
     addProductToCart: (state, action: any) => {
       state.productsList = [
         ...state.productsList,
-        { ...action.payload, quantity: 1 || 0 },
+        {
+          ...action.payload,
+          quantity: 1 || 0,
+          totalItem: action.payload.price,
+        },
       ];
       state.totalCount += 1;
     },
@@ -28,10 +32,11 @@ export const cartSlice = createSlice({
     changeQuantity: (state, action: any) => {
       const { id, amount } = action.payload;
       const index = state.productsList.findIndex((item: any) => item.id === id);
-      console.log(index);
 
       let newShoppingCart = [...state.productsList];
       newShoppingCart[index].quantity = amount;
+      newShoppingCart[index].totalItem =
+        newShoppingCart[index].quantity * newShoppingCart[index].price;
 
       state.productsList = newShoppingCart;
     },

@@ -31,6 +31,8 @@ const CartItem: React.FC<Props> = ({ product }) => {
   const { productsList, totalCount } = useSelector((state: any) => state.cart);
   const dispatch = useDispatch();
 
+  const index = productsList.findIndex((item: any) => item.id === id);
+
   const handleChange = (e: any) => {
     const action = {
       id,
@@ -44,7 +46,7 @@ const CartItem: React.FC<Props> = ({ product }) => {
 
   return (
     <Box
-      sx={{}}
+      sx={{ background: "pink" }}
       width="100%"
       height="120px"
       marginTop="2rem"
@@ -57,7 +59,11 @@ const CartItem: React.FC<Props> = ({ product }) => {
         title={description}
         sx={{ width: "120px", height: "120px" }}
       />
-      <CardContent>
+      <CardContent
+        sx={{
+          background: "red",
+        }}
+      >
         <Typography variant="h6" component="h6" fontSize={16}>
           {truncate(title)}
         </Typography>
@@ -76,7 +82,6 @@ const CartItem: React.FC<Props> = ({ product }) => {
             ))}
           </Select>
         </Typography>
-
         <CardActions>
           <Button
             onClick={() => dispatch(removeProductFromCart(id as any))}
@@ -86,11 +91,9 @@ const CartItem: React.FC<Props> = ({ product }) => {
           </Button>
         </CardActions>
         <Stack direction="row">
+          <Typography variant="body2">$ {price} </Typography>
           <Typography variant="body2">
-            $ {price / 2} to $ {price}
-          </Typography>
-          <Typography variant="body2">
-            Minimun: {Math.round((price / 4) * 3)}
+            Total: {productsList[index].totalItem}
           </Typography>
         </Stack>
       </CardContent>
