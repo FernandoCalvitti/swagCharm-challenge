@@ -32,9 +32,34 @@ const StyledBadge = styled(Badge)<BadgeProps>(() => ({
 
 const Header: React.FC<Props> = (props: Props) => {
   return (
-    <AppBar position="relative" sx={{}} className={Styles.navbar}>
-      <Toolbar className={Styles.toolbar}>
-        <Stack className={Styles.logo}>
+    <AppBar
+      position="relative"
+      sx={{
+        height: "88px",
+        display: "flex",
+        justifyContent: "center",
+        padding: "0 5.75%",
+        overflow: "hidden",
+        "& > div:first-of-type": {
+          padding: "0",
+          margin: "0",
+          display: '"flex"',
+          flexDirection: '"row"',
+          alignItems: '"center"',
+        },
+      }}
+      className={Styles.navbar}
+    >
+      <Toolbar sx={{}} className={Styles.toolbar}>
+        <Stack
+          sx={{
+            "& a button": {
+              margin: 0,
+              padding: 0,
+            },
+          }}
+          className={Styles.logo}
+        >
           <ComposedLink href={HOME}>
             <IconButton size="small">
               <img src="logo.svg" style={{ height: "48px" }} />

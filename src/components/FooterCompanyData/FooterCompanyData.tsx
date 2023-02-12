@@ -30,7 +30,7 @@ const FooterCompanyData = (props: Props) => {
       </ComposedLink>
       <Typography
         sx={{
-          maxWidth: "70%",
+          width: "70%",
         }}
       >
         We sell custom products for all your needs. Packs and bulk products that
